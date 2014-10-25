@@ -9,7 +9,7 @@ include XeroHelpers
 
 # Specify driver (:poltergest, :selenium) and env ("dev", "qa", "live") 
 
-DRIVER = :selenium
+DRIVER = :poltergeist
 $env = "live"
 
 
