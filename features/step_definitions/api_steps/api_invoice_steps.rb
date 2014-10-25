@@ -7,5 +7,5 @@ When(/^I 'get' the invoice "(.*?)" = "(.*?)"$/) do |arg, val|
 end
 
 Then(/^"(.*?)" of the invoice should equal "(.*?)"$/) do |arg, val|
-  @invoice[arg.downcase].to_s.should eq val
+  @invoice[arg.downcase].to_s.should == val
 end
