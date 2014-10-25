@@ -1,5 +1,5 @@
 Then(/^I should see "(.*?)"$/) do |text|
-	should have_text text
+	expect(page).to have_text text
 end
 
 Then(/^I take a screenshot "(.*?)"$/) do |text|
