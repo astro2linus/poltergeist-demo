@@ -1,6 +1,7 @@
 require 'capybara'
 require 'capybara/dsl'
 require 'capybara/poltergeist'
+require 'xeroizer'
 require_relative 'pages'
 require_relative 'helper'
 include Capybara::DSL
@@ -8,7 +9,7 @@ include XeroHelpers
 
 # Specify driver (:poltergest, :selenium) and env ("dev", "qa", "live") 
 
-DRIVER = :poltergeist
+DRIVER = :selenium
 $env = "live"
 
 
@@ -33,4 +34,12 @@ when :selenium
 	  c.app_host = $host
 	end
 end
+
+# Send Xero APIs using Xeroizer
+
+CONSUMER_KEY = "MMTKYLUKN9XAOTAASYR8IFUBZCUTM9"
+CONSUMER_SECRET = "SBARJP3REIZAV20JKJVTOFR5CMXTLZ"
+
+$client = Xeroizer::PrivateApplication.new(CONSUMER_KEY, CONSUMER_SECRET, "features/fixtures/privatekey.pem")
+
 
