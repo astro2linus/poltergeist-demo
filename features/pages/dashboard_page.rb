@@ -1,2 +1,0 @@
-class DashboardPage
-end

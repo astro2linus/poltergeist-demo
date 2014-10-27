@@ -23,19 +23,23 @@ when :poltergeist
 	end
 
 	Capybara.configure do |c|
-		c.run_server = false
-		c.javascript_driver = :poltergeist
+	  c.run_server = false
+	  c.javascript_driver = :poltergeist
 	  c.default_driver = :poltergeist
 	  c.app_host = $host
 	end
 when :selenium
+	Capybara.register_driver :selenium do |app|
+  	Capybara::Selenium::Driver.new(app, :browser => :firefox)
+	end
+
 	Capybara.configure do |c|
 	  c.default_driver = :selenium
 	  c.app_host = $host
 	end
 end
 
-# Send Xero APIs using Xeroizer
+# For sending Xero APIs requests via Xeroizer
 
 CONSUMER_KEY = "MMTKYLUKN9XAOTAASYR8IFUBZCUTM9"
 CONSUMER_SECRET = "SBARJP3REIZAV20JKJVTOFR5CMXTLZ"

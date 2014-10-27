@@ -8,12 +8,9 @@ module XeroHelpers
 	end
 
 	def take_screenshot(name="screenshot")
-		#path = File.expand_path("../../screenshots/#{name.downcase}.png", __FILE__)
-		#{}%x[touch(path)]
-		#save_screenshot(path)
 		sleep 0.5
 		save_screenshot("screenshots/#{name.downcase}.png")
 		embed("screenshots/#{name.downcase}.png", "image/png", "SCREENSHOT")
 		sleep 0.5
-end
+	end
 end
